@@ -1,6 +1,6 @@
 # WEC_Systems_Networks_task
 
-###Procedure:
+### Procedure:
 1. Creating a namespace ns1
    ![Screenshot from 2024-10-03 12-32-01](https://github.com/user-attachments/assets/80f8743e-b1d3-495e-b63e-2187b4437b89)
 
