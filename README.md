@@ -1,4 +1,4 @@
-# WEC_Systems_Networks_task
+ # WEC_Systems_Networks_task
 
 ### Network topology
 ![Network_topo](https://github.com/user-attachments/assets/6fbc03a4-1c02-48f7-a324-623748b67cf4)
@@ -25,7 +25,7 @@
 2. Configuring NAT on the router and enabling forwarding between internal and external gateways
    ![Screenshot from 2024-10-05 12-25-56](https://github.com/user-attachments/assets/2c9e78da-dddc-4dad-bb60-3b0b66b651ef)
 
-3. Testing connectivity
+3. Testing connectivity to external network's interface 
    ![Screenshot from 2024-10-05 13-21-26](https://github.com/user-attachments/assets/a2f27285-ff3d-49b9-9e36-7d259815e9d4)
 
 4. Checking firewall rules
@@ -38,5 +38,6 @@
 2. Not able to ping from client2 to eth1 but able to ping from eth1 to client2
 
 
+### Bonus Tasks (to be done)
 
 
