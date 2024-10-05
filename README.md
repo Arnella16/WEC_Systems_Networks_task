@@ -1,4 +1,7 @@
- # WEC_Systems_Networks_task
+ # WEC Systems Networks task
+
+## Description : 
+Creating a NAT(Network address translation) and configuring port forwarding and restricting outbound traffic other than HTTP and HTTPS clients using Linux network namespaces
 
 ### Network topology
 ![Network_topo](https://github.com/user-attachments/assets/6fbc03a4-1c02-48f7-a324-623748b67cf4)
