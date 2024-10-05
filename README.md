@@ -82,15 +82,15 @@ Firewall network details:
    
 2.   Host a simple web server using **python** using the command:
 
-    ```
+   ```
      ip netns exec client1 python3 -m http.server 8080
-    ```
+   ```
    
     To check if you can access the server from the client1 namespace
 
-    ```
+   ```
      ip netns exec client1 curl http://192.168.10.3:8080 
-    ```
+   ```
     
    ![Screenshot from 2024-10-05 23-19-26](https://github.com/user-attachments/assets/4ea46365-ce92-44db-9630-a6b690c76e01)
 
