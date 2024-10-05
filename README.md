@@ -157,8 +157,22 @@ Firewall network details:
    ![image](https://github.com/user-attachments/assets/c85ae51d-c76c-4329-9177-a0f4b469f680)
 
 
-   
+#### Restricting outbound traffic 
 
+Set the default policy for the OUTPUT chain to DROP because anything other than HTTP and HTTPS needs to be dropped.
+Add rules to allow HTTP and HTTPS traffic. This allows outbound traffic on port 80 and 443.
+
+```
+ip netns exec client1 iptables -P OUTPUT DROP
+ip netns exec client1 iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+ip netns exec client1 iptables -A OUTPUT -p tcp --dport 80 -j ACCEPT
+ip netns exec client1 iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
+ip netns exec client1 iptables -L -v
+```
+
+![image](https://github.com/user-attachments/assets/de9254e5-8a94-4112-bed7-f11d21170f3b)
+![Screenshot from 2024-10-06 00-38-27](https://github.com/user-attachments/assets/ede00830-9806-45b0-bee6-57aef24acb87)
+![image](https://github.com/user-attachments/assets/fc4e03d4-f9ee-4228-afba-7b4a36d93879)
 
 
    
