@@ -80,7 +80,7 @@ Firewall network details:
        }
    ```
    
-2.   Host a simple web server using **python** using the command:
+2.   Host a simple web server using **python** using the command and to check if you can access the server from the client1 namespace:
 
    ```
      ip netns exec client1 python3 -m http.server 8080
@@ -88,8 +88,6 @@ Firewall network details:
    ```
 
    ![Screenshot from 2024-10-05 23-19-26](https://github.com/user-attachments/assets/4ea46365-ce92-44db-9630-a6b690c76e01)
-   
-    To check if you can access the server from the client1 namespace
 
    ![Screenshot from 2024-10-05 23-34-00](https://github.com/user-attachments/assets/473a6d13-36ea-42c1-a509-d2ae3ac717ad)   
 
