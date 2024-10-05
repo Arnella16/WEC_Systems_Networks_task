@@ -19,6 +19,24 @@
 
 
 ##### Using the iptables command provided by the iproute2 package to set up NAT and IP masquerading 
-1. Creating an interface in the router with a public ip to be the external gateway through the router
+1. Creating an interface in the router with a public IP to be the external gateway through the router
+   ![Screenshot from 2024-10-05 12-16-28](https://github.com/user-attachments/assets/5deada88-4fc2-4d6e-b62b-316a7f00bdd5)
      
 2. Configuring NAT on the router and enabling forwarding between internal and external gateways
+   ![Screenshot from 2024-10-05 12-25-56](https://github.com/user-attachments/assets/2c9e78da-dddc-4dad-bb60-3b0b66b651ef)
+
+3. Testing connectivity
+   ![Screenshot from 2024-10-05 13-21-26](https://github.com/user-attachments/assets/a2f27285-ff3d-49b9-9e36-7d259815e9d4)
+
+4. Checking firewall rules
+   ![Screenshot from 2024-10-05 13-22-51](https://github.com/user-attachments/assets/107832d1-2981-4802-8a76-3b6e83639fbd)
+      
+
+
+### Challenges faced:
+1. No command found to check the IP translation table
+2. Not able to ping from client2 to eth1 but able to ping from eth1 to client2
+
+
+
+
