@@ -80,13 +80,16 @@ Firewall network details:
        }
    ```
    
-3.   Host a simple web server using **python** using the command:
+2.   Host a simple web server using **python** using the command:
+
     ```
-ip netns exec client1 python3 -m http.server 8080
-```
+     ip netns exec client1 python3 -m http.server 8080
+   ```
+
     ![Screenshot from 2024-10-05 23-19-26](https://github.com/user-attachments/assets/4ea46365-ce92-44db-9630-a6b690c76e01)
 
    To check if you can access the server from the client1 namespace
+
    ```
 ip netns exec client1 curl http://192.168.10.3:8080 
 ```
@@ -96,6 +99,7 @@ ip netns exec client1 curl http://192.168.10.3:8080
 
 3. To access your web server from your router, use the following command:
    Since the router is directly connected to the client1's private interface we can directly access it through client's private IP
+
    ```
 ip netns exec router curl http://192.168.10.3:8080 
 ```
@@ -104,6 +108,7 @@ ip netns exec router curl http://192.168.10.3:8080
 
 
 4. Enable ip forwarding
+
    ```
 ip netns exec router echo 1 | tee /proc/sys/net/ipv4/ip_forward
        ip netns exec router nano /etc/sysctl.conf
@@ -113,13 +118,16 @@ ip netns exec router echo 1 | tee /proc/sys/net/ipv4/ip_forward
    ![Screenshot from 2024-10-05 23-40-10](https://github.com/user-attachments/assets/e58d704a-8f13-4783-ae19-8ef4f67f76f3)
 
 5. To turn on port forwarding permanently run the following command:
+
    ```
 sysctl --system 
 ```
+
    ![Screenshot from 2024-10-05 23-43-42](https://github.com/user-attachments/assets/cfd5aad0-5a46-49df-88cb-89b60171b4aa)
 
 
 6. Add forwarding rules to your router
+
    ```
 ip netns exec router iptables -t nat -A PREROUTING -p tcp -d 203.0.113.1 --dport 80 -j DNAT --to-destination 192.168.10.3:8080
        ip netns exec router iptables -A FORWARD -p tcp -d 192.168.10.3 --dport 8080 -j ACCEPT
@@ -127,23 +135,29 @@ ip netns exec router iptables -t nat -A PREROUTING -p tcp -d 203.0.113.1 --dport
    ```
 
 7. To verify if the rules are set correctly
+
    ```
 ip netns exec router iptables -t nat -L -v
        ip netns exec router iptables -L FORWARD -v
    ```
+
    ![Screenshot from 2024-10-05 23-49-16](https://github.com/user-attachments/assets/9b25765c-6593-4c23-935b-d680a401ab13)
 
 8. To check if we're able to forward requests from "internet" to the web server through router's public IP
    Using client1's private IP:
+
    ```
    curl http://192.168.10.3:8080
    ```
+
    ![image](https://github.com/user-attachments/assets/417c0a72-fce4-493a-a871-132496c7642a)
 
    Using router's public IP:
+
    ```
    curl http://203.0.113.1:8080
    ```
+
    ![image](https://github.com/user-attachments/assets/4d0e3b0b-7631-4279-a705-00f062e6c1aa)
    ![image](https://github.com/user-attachments/assets/c85ae51d-c76c-4329-9177-a0f4b469f680)
 
