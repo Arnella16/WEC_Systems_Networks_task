@@ -39,6 +39,7 @@ Creating a NAT(Network address translation) and configuring port forwarding and 
 ### Challenges faced:
 1. No command found to check the IP translation table
 2. Not able to ping from client2 to eth1 but able to ping from eth1 to client2
+   (Reason: The router elects one of the interfaces as primary interface if the interfaces are in the same network)
 3. While enabling port forwarding, figuring out the forwarding rules to the router was hard because there are no proper resources
 
 
